@@ -1,0 +1,314 @@
+@import "tailwindcss";
+
+@theme {
+  /* Gold Color Palette */
+  --color-gold-50: #FFFBEB;
+  --color-gold-100: #FEF3C7;
+  --color-gold-200: #FDE68A;
+  --color-gold-300: #FCD34D;
+  --color-gold-400: #FBBF24;
+  --color-gold-500: #F59E0B;
+  --color-gold-600: #D97706;
+  --color-gold-700: #B45309;
+  --color-gold-800: #92400E;
+  --color-gold-900: #78350F;
+
+  /* Charcoal Color Palette */
+  --color-charcoal-50: #F5F5F5;
+  --color-charcoal-100: #E0E0E0;
+  --color-charcoal-200: #BDBDBD;
+  --color-charcoal-300: #9E9E9E;
+  --color-charcoal-400: #757575;
+  --color-charcoal-500: #616161;
+  --color-charcoal-600: #424242;
+  --color-charcoal-700: #2C2C2C;
+  --color-charcoal-800: #1E1E1E;
+  --color-charcoal-900: #121212;
+
+  /* Shadows */
+  --shadow-glow-gold: 0 0 20px rgba(245, 158, 11, 0.5);
+  --shadow-glow-gold-lg: 0 0 40px rgba(245, 158, 11, 0.6);
+  --shadow-glass: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+
+  /* Animations */
+  --animate-pulse-slow: pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  --animate-marquee: marquee 30s linear infinite;
+}
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 0 0% 3.9%;
+  }
+
+  .dark {
+    --background: 0 0% 7%;
+    --foreground: 0 0% 98%;
+  }
+
+  * {
+    border-color: var(--color-charcoal-700);
+  }
+
+  body {
+    background-color: var(--color-charcoal-900);
+    color: rgb(243 244 246);
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body.light {
+    background-color: white;
+    color: var(--color-charcoal-900);
+  }
+}
+
+@layer components {
+  /* Glass Morphism */
+  .glass {
+    background-color: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+  }
+
+  .glass-dark {
+    background-color: rgba(30, 30, 30, 0.6);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(44, 44, 44, 0.5);
+  }
+
+  /* Gold Gradient Text */
+  .text-gradient-gold {
+    background: linear-gradient(to right, #FBBF24, #F59E0B, #D97706);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  /* Background Gradients */
+  .bg-gradient-gold {
+    background: linear-gradient(135deg, #F59E0B 0%, #D97706 100%);
+  }
+
+  .bg-gradient-radial {
+    background: radial-gradient(circle, var(--tw-gradient-stops));
+  }
+
+  /* Card Styles */
+  .card-luxury {
+    background-color: rgba(30, 30, 30, 0.6);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(44, 44, 44, 0.5);
+    border-radius: 1rem;
+    padding: 1.5rem;
+    box-shadow: var(--shadow-glass);
+    transition: all 0.3s ease;
+  }
+
+  .card-luxury:hover {
+    box-shadow: var(--shadow-glow-gold);
+  }
+
+  /* Button Styles */
+  .btn-primary {
+    background: linear-gradient(135deg, #F59E0B 0%, #D97706 100%);
+    color: white;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.5rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+  }
+
+  .btn-primary:hover {
+    box-shadow: var(--shadow-glow-gold);
+    transform: scale(1.05);
+  }
+
+  .btn-secondary {
+    background-color: rgba(30, 30, 30, 0.6);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(44, 44, 44, 0.5);
+    color: #FBBF24;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.5rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+  }
+
+  .btn-secondary:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+  }
+
+  /* Scrollbar Styling */
+  .scrollbar-gold::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  .scrollbar-gold::-webkit-scrollbar-track {
+    background-color: var(--color-charcoal-800);
+    border-radius: 0.5rem;
+  }
+
+  .scrollbar-gold::-webkit-scrollbar-thumb {
+    background-color: var(--color-gold-600);
+    border-radius: 0.5rem;
+  }
+
+  .scrollbar-gold::-webkit-scrollbar-thumb:hover {
+    background-color: var(--color-gold-500);
+  }
+
+  /* Product Table Optimizations */
+  .product-table-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .glow-text-gold {
+    text-shadow: 0 0 10px rgba(245, 158, 11, 0.5);
+  }
+
+  .shadow-glow-gold {
+    box-shadow: var(--shadow-glow-gold);
+  }
+
+  .shadow-glow-gold-lg {
+    box-shadow: var(--shadow-glow-gold-lg);
+  }
+
+  .shadow-glass {
+    box-shadow: var(--shadow-glass);
+  }
+
+  /* Mobile-specific utilities */
+  @media (max-width: 640px) {
+    .product-name {
+      font-size: 0.75rem;
+    }
+    
+    .price-value {
+      font-size: 1rem;
+    }
+  }
+}
+
+/* Keyframe Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideDown {
+  from {
+    transform: translateY(-20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+@keyframes marquee {
+  from {
+    transform: translateX(0%);
+  }
+  to {
+    transform: translateX(-100%);
+  }
+}
+
+@keyframes priceUpdate {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+}
+
+/* Animation Classes */
+.animate-fade-in {
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+.animate-slide-up {
+  animation: slideUp 0.5s ease-out;
+}
+
+.animate-slide-down {
+  animation: slideDown 0.5s ease-out;
+}
+
+.animate-pulse-slow {
+  animation: pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+.animate-marquee {
+  animation: marquee 30s linear infinite;
+}
+
+.price-updated {
+  animation: priceUpdate 0.3s ease-in-out;
+}
+
+/* Custom scrollbar for entire app */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #1E1E1E;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #F59E0B;
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #D97706;
+}
+
+/* Slick Carousel Overrides */
+.slick-dots li button:before {
+  color: #F59E0B !important;
+}
+
+.slick-dots li.slick-active button:before {
+  color: #D97706 !important;
+}
